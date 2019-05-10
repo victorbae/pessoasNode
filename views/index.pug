@@ -1,0 +1,85 @@
+﻿html
+  head
+    meta(charset='ISO-8859-1')
+    title CRUD
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.7.2/css/all.css')
+    script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
+  body.text-center
+    style(type='text/css').
+      .pega-clique:hover {
+      background-color: rgba(0, 0, 0, .10) !important;
+      cursor: pointer;
+      }
+      .row {
+      margin-left: 0px;
+      margin-right: 0px;
+      }
+    .content
+      .row.justify-content-sm-center
+        h3.display-4(style='margin-top: 33px;') SS
+      hr.my-4
+      .row.justify-content-md-center(style='margin-top: 33px;')
+        button.btn.btn-primary(type='button', onclick="location.href='/cidade/novo'") Nova Cidade
+        button.btn.btn-primary(type='button', onclick="location.href='/estado/novo'") Novo Estado
+        button.btn.btn-primary(type='button', onclick="location.href='/pessoa/novo'") Nova Pessoa
+    .row.justify-content-md-center
+      .col-sm-12.col-md-6
+        table.table.table-bordered.table-striped.col-sm-12
+          thead
+            tr
+              th Nome
+              th Estado
+              th #
+          tbody
+            each cidade in cidades
+                tr.pega-clique
+                    td(onclick="location.href='/cidade/editar/" + cidade.codigo + "'") #{cidade.nome}
+                    td(onclick="location.href='/cidade/editar/" + cidade.codigo + "'") #{cidade.estado.nome} - #{cidade.estado.sigla}
+                    td
+                     a.btn.btn-outline-danger(type='button', href='/cidade/excluir/' + cidade.codigo) Excluir
+            else
+               h3 Nenhuma cidade cadastrada
+    .row.justify-content-md-center
+      .col-sm-12.col-md-6
+        table.table.table-bordered.table-striped.col-sm-12
+          thead
+            tr
+              th Nome
+              th Sigla
+              th #
+          tbody
+            each estado in estados
+                tr.pega-clique
+                  td(onclick="location.href='/estado/editar/" + estado.codigo + "'") #{estado.nome}
+                  td(onclick="location.href='/estado/editar/" + estado.codigo + "'") #{estado.sigla}
+                  td 
+                   a.btn.btn-outline-danger(type='button', href='/estado/excluir/' + estado.codigo) Excluir
+            else
+              h3 Nenhum estado cadastrado
+    .row.justify-content-md-center
+      .col-sm-12.col-md-6
+        table.table.table-bordered.table-striped.col-sm-12
+          thead
+            tr
+              th Nome
+              th CPF
+              th Telefone
+              th Cidade
+              th #
+          tbody
+             each pessoa in pessoas
+                tr.pega-clique
+                    td(onclick="location.href='/pessoa/editar/" + pessoa.codigo + "'") #{pessoa.nome} 
+                    td(onclick="location.href='/pessoa/editar/" + pessoa.codigo + "'") #{pessoa.cpf} 
+                    td(onclick="location.href='/pessoa/editar/" + pessoa.codigo + "'") #{pessoa.telefone} 
+                    td(onclick="location.href='/pessoa/editar/" + pessoa.codigo + "'") #{pessoa.cidade.nome}  -  #{pessoa.cidade.estado.sigla} 
+                    td 
+                     a.btn.btn-outline-danger(type='button', href='/pessoa/excluir/' + pessoa.codigo) Excluir
+             else
+                h3 Nenhuma pessoa cadastrada
+    footer.text-center(style='margin-top: 33px;')
+      a.nav-link(href='#', target='_BLANK') João Victor Baesso®
+      a.nav-link(href='#', target='_BLANK') Vitor Paulo®

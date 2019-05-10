@@ -1,0 +1,37 @@
+﻿html
+  head
+    meta(charset='ISO-8859-1')
+    title Nova Pessoa
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+    script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
+  body.text-center
+    style(type='text/css').
+      .row {
+      margin-left: 0px;
+      margin-right: 0px;
+      }
+    .content
+      .row.justify-content-sm-center
+        h3.display-4(style='margin-top: 33px;') Pessoa
+      .row.justify-content-md-center
+        .col-sm-12.col-md-4
+          form.col(action='/pessoa/salvar', method='post')
+            .form-group
+              input#codigo.form-control(type='hidden', name='codigo', value=pessoa.codigo)
+              input#nome.form-control(type='text', name='nome', placeholder='Nome', value=pessoa.nome)
+            .form-group
+              input#cpf.form-control(type='text', name='cpf', placeholder='CPF', value=pessoa.cpf)
+            .form-group
+              input#nome.form-control(type='text', name='telefone', placeholder='Telefone', value=pessoa.telefone)
+            .form-group
+              select#cidade.custom-select(name='cidade')
+               each cidade in cidades
+                option(value=cidade.codigo) #{cidade.estado.sigla}
+               else
+                option Nenhuma cidade cadastrada!  
+            button.btn.btn-primary(type='submit') Salvar
+      footer.text-center(style='margin-top: 33px;')
+       a.nav-link(href='#', target='_BLANK') João Victor Baesso®
+       a.nav-link(href='#', target='_BLANK') Vitor Paulo®

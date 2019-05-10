@@ -1,0 +1,21 @@
+{
+  "name": "crud-mvc",
+  "version": "1.0.0",
+  "description": "Meu Pau na descricao",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Victor Baesso",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongodb": "^3.2.3",
+    "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "nodeman": "^1.1.2"
+  }
+}
